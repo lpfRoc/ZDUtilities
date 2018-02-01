@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
 
-s.name = 'ZDUtilites'
+s.name = 'ZDUtilities'
 s.version = '1.0.2'
 s.license = { :type => 'MIT', :file => 'LICENSE' }
 s.summary = 'Tool module'
