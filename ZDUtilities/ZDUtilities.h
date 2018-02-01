@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
-#import "OCAlertView.h"
 @class ZDProgressHUD;
 @interface ZDUtilities : NSObject
 
