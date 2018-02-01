@@ -10,6 +10,6 @@ s.source = { :git => 'https://github.com/lpfRoc/ZDUtilities.git', :tag => s.vers
 
 s.ios.deployment_target = '8.0'
 
-s.source_files = 'ZDUtilities/{NS,ZD,UI}*.{h,m}'
+s.source_files = 'ZDUtilities/*.{h,m}'
 end
 
