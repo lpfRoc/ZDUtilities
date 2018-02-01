@@ -1,7 +1,7 @@
 Pod::Spec.new do |s|
 
 s.name = 'ZDUtilities'
-s.version = '1.0.2'
+s.version = '1.0.4'
 s.license = { :type => 'MIT', :file => 'LICENSE' }
 s.summary = 'Tool module'
 s.homepage = 'https://github.com/lpfRoc/ZDUtilities'
