@@ -14,4 +14,3 @@ s.source_files = 'ZDUtilities/*.{h,m}'
 s.frameworks = 'Foundation'
 
 end
-
