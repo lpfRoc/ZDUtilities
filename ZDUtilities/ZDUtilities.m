@@ -8,7 +8,6 @@
 
 #import "ZDUtilities.h"
 #import <objc/runtime.h>
-#import "SSKeychain.h"
 @implementation ZDUtilities
 #pragma mark NSUserDefault使用封装
 +(void)setUserDefaultWithValue:(id)value forKey:(NSString *)key{
@@ -411,31 +410,31 @@
 #pragma mark - 设备标识
 +(NSString *)deviceUUID{
     NSLog(@"kAppIdentifier = %@", DEVICE_APP_BUNDLE_IDENTIFIER);
-    NSString * UUID = [SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER];
-    if (!UUID || [UUID isEqualToString:@""]) {
-        //iOS中获取UUID的代码如下
-        CFUUIDRef puuid = CFUUIDCreate( nil );
-        CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
-        NSString * result = (NSString *)CFBridgingRelease(CFStringCreateCopy( NULL, uuidString));
-        CFRelease(puuid);
-        CFRelease(uuidString);
-        [SSKeychain setPassword:result forService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER];
-        if (result.length) {
-            return result;
-        }
-    }
-    NSString * uuid = [SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER]?[SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER]:@"";
-    NSString * deviceUUID = [[NSString alloc]initWithString:uuid];
-    return deviceUUID;
+//    NSString * UUID = [SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER];
+//    if (!UUID || [UUID isEqualToString:@""]) {
+//        //iOS中获取UUID的代码如下
+//        CFUUIDRef puuid = CFUUIDCreate( nil );
+//        CFStringRef uuidString = CFUUIDCreateString( nil, puuid );
+//        NSString * result = (NSString *)CFBridgingRelease(CFStringCreateCopy( NULL, uuidString));
+//        CFRelease(puuid);
+//        CFRelease(uuidString);
+//        [SSKeychain setPassword:result forService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER];
+//        if (result.length) {
+//            return result;
+//        }
+//    }
+//    NSString * uuid = [SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER]?[SSKeychain passwordForService:DEVICE_APP_BUNDLE_IDENTIFIER account:DEVICE_APP_BUNDLE_IDENTIFIER]:@"";
+//    NSString * deviceUUID = [[NSString alloc]initWithString:uuid];
+    return @"";
 }
 
 #pragma mark - 是否第一次使用这个应用
 +(BOOL)isAPPFirstUsed{
     NSString * identifier = @"isFirstUsed";
-    NSString * isFirstUsed = [SSKeychain passwordForService:identifier account:identifier];
-    if (!isFirstUsed || [isFirstUsed isEqualToString:@""]) {
-        return [SSKeychain setPassword:@"1" forService:identifier account:identifier];
-    }
+//    NSString * isFirstUsed = [SSKeychain passwordForService:identifier account:identifier];
+//    if (!isFirstUsed || [isFirstUsed isEqualToString:@""]) {
+//        return [SSKeychain setPassword:@"1" forService:identifier account:identifier];
+//    }
     return NO;
 }
 #pragma mark - 设备高度
